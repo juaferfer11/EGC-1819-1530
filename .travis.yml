@@ -16,3 +16,10 @@ install:
 script:
   - cd decide
   - if [[ $TRAVIS_BRANCH == "master" ]]; then python manage.py test store --keepdb; fi;
+deploy:
+  provider: heroku
+  app: egc-1819-1530-juaferfer11
+  strategy: git
+  api_key: $HEROKU_AUTH_TOKEN
+  on:
+    branch: master
