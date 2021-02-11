@@ -15,4 +15,4 @@ install:
   - pip install -r requirements.txt
 script:
   - cd decide
-  - python manage.py test store --keepdb
+  - if [[ $TRAVIS_BRANCH == "master" ]]; then python manage.py test store --keepdb; fi;
